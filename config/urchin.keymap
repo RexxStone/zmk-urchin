@@ -98,7 +98,7 @@
 			label = "Mods";
 			bindings = <
 			&kp ESC      &kp C_PREV &kp C_PP   &kp C_NEXT &kp LC(DE_Y)	&kp PG_UP    &kp HOME &kp UP    &kp END   		&kp CAPS
-			&sk LALT     &sk LGUI   &sk LSHIFT &sk LCTRL  &kp RALT		&kp PG_DN    &kp LEFT &kp DOWN  &kp RIGHT 		&kp DEL
+			&sk LALT     &sk LGUI   &sk LSHIFT &sk LCTRL  &kp LGUI		&kp PG_DN    &kp LEFT &kp DOWN  &kp RIGHT 		&kp DEL
 			&kp LC(DE_Z) &kp LC(X)  &kp LC(C)  &kp TAB    &kp LC(V)     &kp LC(BSPC) &kp BSPC &kp PSCRN &kp PAUSE_BREAK	&kp LC(DEL)
 											   &trans 	  &none		    &kp ENTER    &mo FNC
 			>;
@@ -109,7 +109,7 @@
 			label = "FRow";
 			bindings = <
 			&none 	 &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &none		&none &kp F1 &kp F2 &kp F3 &kp F10 
-			&sk LALT &sk LGUI 	  &sk LSHIFT &sk LCTRL 	  &kp RALT  &none &kp F4 &kp F5 &kp F6 &kp F11
+			&sk LALT &sk LGUI 	  &sk LSHIFT &sk LCTRL 	  &sk RALT  &none &kp F4 &kp F5 &kp F6 &kp F11
 			&none 	 &kp C_BRI_DN &none 	 &kp C_BRI_UP &none		&none &kp F7 &kp F8 &kp F9 &kp F12
 							  	  			 &none		  &none		&none &none
 			>;
@@ -120,7 +120,7 @@
 			label = "Sym.2";
 			bindings = <
 			&kp DE_COUML &kp DE_ACU  &kp DE_CARET &kp DE_GRAVE &kp DE_TILDE	&none &none &kp DE_SQRD &kp DE_QBD &kp DE_BSLH 
-			&kp DE_CAUML &kp DE_AT   &kp DE_PRCNT &kp DE_EUR   &kp DE_PIPE	&none &none &none 		&none 	   &none
+			&kp DE_CAUML &kp DE_AT   &kp DE_PRCNT &kp DE_EUR   &kp DE_PIPE	&none &none &none 		&none 	   &kp DE_CSZ
 			&kp DE_CUUML &kp DE_SECT &kp DE_DEG   &kp DE_DLLR  &kp DE_MY    &none &none &none 		&none 	   &none
 												  &none		   &none        &none &none 
 			>;
