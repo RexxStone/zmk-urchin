@@ -16,8 +16,9 @@
     #define EXT 2
     #define FNC 3
     #define SYM2 4
-    #define ACCENT 5
-	#define SETTINGS 6
+    #define GAME 5
+	#define GAME2 6
+	#define SETTINGS 7
 // -----------------
 
 &sk {
@@ -50,20 +51,23 @@
 		compatible = "zmk,combos";
 		// both right thumb keys
         combo_accent {
-			timeout-ms = <200>;
+			timeout-ms = <50>;
 			key-positions = <32 33>;
-			bindings = <&mo ACCENT>;
+			layers = <BASE>;
+			bindings = <&to GAME>;
         };
 		// internal-left & external-right thumb keys
 		combo_sym2 {
-			timeout-ms = <200>;
+			timeout-ms = <50>;
 			key-positions = <31 33>;
+			layers = <BASE SYM EXT FNC SYM2 SETTINGS>;
 			bindings = <&mo SYM2>;
 		};
 		// both left thumb keys
 		combo_settings {
-			timeout-ms = <200>;
+			timeout-ms = <50>;
 			key-positions = <30 31>;
+			layers = <BASE SYM EXT FNC SYM2 SETTINGS>;
 			bindings = <&mo SETTINGS>;
 		};
     };
@@ -119,21 +123,31 @@
 		symbols_2_layer {
 			label = "Sym.2";
 			bindings = <
-			&kp DE_COUML &kp DE_ACU  &kp DE_CARET &kp DE_GRAVE &kp DE_TILDE	&none &none &kp DE_SQRD &kp DE_QBD &kp DE_BSLH 
-			&kp DE_CAUML &kp DE_AT   &kp DE_PRCNT &kp DE_EUR   &kp DE_PIPE	&none &none &none 		&none 	   &kp DE_CSZ
-			&kp DE_CUUML &kp DE_SECT &kp DE_DEG   &kp DE_DLLR  &kp DE_MY    &none &none &none 		&none 	   &none
-												  &none		   &none        &none &none 
+			&kp DE_COUML &kp DE_ACU  &kp DE_CARET &kp DE_GRAVE &kp DE_TILDE		&none &none &kp DE_SQRD &kp DE_QBD &kp DE_BSLH 
+			&kp DE_CAUML &kp DE_AT   &kp DE_PRCNT &kp DE_EUR   &kp DE_PIPE		&none &none &none 		&none 	   &kp DE_CSZ
+			&kp DE_CUUML &kp DE_SECT &kp DE_DEG   &kp DE_DLLR  &kp DE_MY    	&none &none &none 		&none 	   &none
+												  &none		   &none        	&none &none 
 			>;
 		};
 
-        // Used to type regional accents.
-		accent_layer {
-			label = "Accent";
+        // Used for Gaming.
+		gaming_layer {
+			label = "Gaming";
 			bindings = <
-			&none &none &none &none &none	&none &none &none &none &none 
-			&none &none &none &none &none	&none &none &none &none &none
-			&none &none &none &none &none   &none &none &none &none &none
-							  &none &none   &none &none 
+			&kp TAB    &kp Q &kp W &kp E 	 &kp R		&to BASE &none 	  &kp UP   &none 	 &none 
+			&kp LSHIFT &kp A &kp S &kp D 	 &kp F		&to BASE &kp LEFT &kp DOWN &kp RIGHT &kp RSHIFT
+			&kp LCTRL  &kp Y &kp X &kp C	 &kp V		&to BASE &kp BSPC &none    &none 	 &kp RCTRL
+							  	   &mo GAME2 &kp SPACE  &none &none 
+			>;
+		};
+		
+		gaming_2_layer {
+			label = "Gaming2";
+			bindings = <
+			&kp ESC   &kp N1 &kp N2 &kp N3 &kp T	&kp Z &kp U &kp I 	  &kp O   &kp P 
+			&kp ENTER &kp N4 &kp N5 &kp N6 &kp G	&kp H &KP J &kp K 	  &kp L   &kp DE_PLUS
+			&kp LALT  &kp N7 &kp N8 &kp N9 &kp B	&kp N &kp M &kp COMMA &kp DOT &kp DE_MINUS
+							  		&trans &none	&none &none 
 			>;
 		};
 
@@ -141,10 +155,10 @@
 		settings_layer {
 				label = "Sett.";
 				bindings = <
-				&bootloader &none &none &bt BT_CLR &bt BT_SEL 0               &bt BT_SEL 3 &none &unstick &none &bootloader 
-				&none &none &none &none      &bt BT_SEL 1 						  &bt BT_SEL 4 &none &none &none &none
-				&none &none &none &none      &bt BT_SEL 2               &bt BT_SEL 5 &none &none &none &none
-										&none &none                         &none &none 
+				&bootloader &none &none &bt BT_CLR &bt BT_SEL 0		&bt BT_SEL 3 &none &unstick &none &bootloader 
+				&none 		&none &none &none      &bt BT_SEL 1		&bt BT_SEL 4 &none &none 	&none &none
+				&none 		&none &none &none      &bt BT_SEL 2		&bt BT_SEL 5 &none &none 	&none &none
+										&none 	   &none			&none 		 &none 
 				>;
 		};
 	};
