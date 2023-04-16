@@ -99,9 +99,9 @@
 		sym_layer {
 			label = "Sym.";
 			bindings = <
-			&kp DE_OUML &kp DE_LT 	&kp DE_EQUAL &kp DE_GT 	 &kp DE_AMPS	&kp DE_PLUS  &kp N1 &kp N2 &kp N3 &kp DE_SLASH
+			&kp DE_UUML &kp DE_LT 	&kp DE_EQUAL &kp DE_GT 	 &kp DE_AMPS	&kp DE_PLUS  &kp N1 &kp N2 &kp N3 &kp DE_SLASH
 			&kp DE_AUML &kp DE_LBRC &kp DE_LBKT  &kp DE_LPAR &kp DE_UNDER	&kp DE_MINUS &kp N4 &kp N5 &kp N6 &kp N0
-			&kp DE_UUML &kp DE_RBRC	&kp DE_RBKT  &kp DE_RPAR &kp DE_HASH 	&kp DE_ASTRK &kp N7 &kp N8 &kp N9 &kp DE_DQT
+			&kp DE_OUML &kp DE_RBRC	&kp DE_RBKT  &kp DE_RPAR &kp DE_HASH 	&kp DE_ASTRK &kp N7 &kp N8 &kp N9 &kp DE_DQT
 												 &mo FNC	 &mo SYM2       &trans 		 &trans
 			>;
 		};
@@ -132,9 +132,9 @@
 		symbols_2_layer {
 			label = "Sym.2";
 			bindings = <
-			&kp DE_COUML &kp DE_ACU  &kp DE_CARET &kp DE_GRAVE &kp DE_TILDE		&none &none &kp DE_SQRD &kp DE_QBD &kp DE_BSLH 
+			&kp DE_CUUML &kp DE_ACU  &kp DE_CARET &kp DE_GRAVE &kp DE_TILDE		&none &none &kp DE_SQRD &kp DE_QBD &kp DE_BSLH 
 			&kp DE_CAUML &kp DE_AT   &kp DE_PRCNT &kp DE_EUR   &kp DE_PIPE		&none &none &none 		&none 	   &kp DE_CSZ
-			&kp DE_CUUML &kp DE_SECT &kp DE_DEG   &kp DE_DLLR  &kp DE_MY    	&none &none &none 		&none 	   &none
+			&kp DE_COUML &kp DE_SECT &kp DE_DEG   &kp DE_DLLR  &kp DE_MY    	&none &none &none 		&none 	   &none
 												  &none		   &none        	&none &none 
 			>;
 		};
