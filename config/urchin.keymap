@@ -35,6 +35,13 @@
             bindings = <&kp DE_APOS>, <&kp DE_EXCL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        slaqm: slash_qmark {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SLASH_QMARK";
+            #binding-cells = <0>;
+            bindings = <&kp DE_SLASH>, <&kp DE_QMARK>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
 		kp_sk: behaviour_kp_sk {
 			compatible = "zmk,behavior-hold-tap";
             label = "kp_sk";
@@ -88,9 +95,9 @@
 		default_layer {
 			label = "Base";
 			bindings = <
-			&kp Q &kp W &kp F &kp P   &kp B           &kp J     &kp L  &kp U     &kp Z   &kp DE_SZ
+			&kp Q &kp W &kp F &kp P   &kp B           &kp J     &kp L  &kp U     &kp Z   &apexcl
 			&kp A &kp R &kp S &kp T   &kp G           &kp M     &kp N  &kp E     &kp I   &kp O
-			&kp Y &kp X &kp C &kp D   &kp V           &kp K     &kp H  &kp COMMA &kp DOT &apexcl
+			&kp Y &kp X &kp C &kp D   &kp V           &kp K     &kp H  &kp COMMA &kp DOT &slaqm
 							  &mo EXT &kp LSHIFT      &kp SPACE &mo SYM
 			>;
 		};
@@ -99,9 +106,9 @@
 		sym_layer {
 			label = "Sym.";
 			bindings = <
-			&kp DE_UUML &kp DE_LT 	&kp DE_EQUAL &kp DE_GT 	 &kp DE_AMPS	&kp DE_PLUS  &kp N1 &kp N2 &kp N3 &kp DE_SLASH
-			&kp DE_AUML &kp DE_LBRC &kp DE_LBKT  &kp DE_LPAR &kp DE_UNDER	&kp DE_MINUS &kp N4 &kp N5 &kp N6 &kp N0
-			&kp DE_OUML &kp DE_RBRC	&kp DE_RBKT  &kp DE_RPAR &kp DE_HASH 	&kp DE_ASTRK &kp N7 &kp N8 &kp N9 &kp DE_DQT
+			&kp DE_UUML &kp DE_LT 	&kp DE_EQUAL &kp DE_GT 	 &kp DE_PLUS	&kp DE_AMPS  &kp N7 &kp N8 &kp N9 &kp DE_DQT
+			&kp DE_AUML &kp DE_LBRC &kp DE_LBKT  &kp DE_LPAR &kp DE_MINUS	&kp DE_UNDER &kp N4 &kp N5 &kp N6 &kp N0
+			&kp DE_OUML &kp DE_RBRC	&kp DE_RBKT  &kp DE_RPAR &kp DE_ASTRK 	&kp DE_HASH  &kp N1 &kp N2 &kp N3 &kp DE_SZ
 												 &mo FNC	 &mo SYM2       &trans 		 &trans
 			>;
 		};
@@ -132,9 +139,9 @@
 		symbols_2_layer {
 			label = "Sym.2";
 			bindings = <
-			&kp DE_CUUML &kp DE_ACU  &kp DE_CARET &kp DE_GRAVE &kp DE_TILDE		&none &none &kp DE_SQRD &kp DE_QBD &kp DE_BSLH 
+			&kp DE_CUUML &kp DE_ACU  &kp DE_CARET &kp DE_GRAVE &kp DE_TILDE		&none &none &kp DE_SQRD &kp DE_QBD &none
 			&kp DE_CAUML &kp DE_AT   &kp DE_PRCNT &kp DE_EUR   &kp DE_PIPE		&none &none &none 		&none 	   &kp DE_CSZ
-			&kp DE_COUML &kp DE_SECT &kp DE_DEG   &kp DE_DLLR  &kp DE_MY    	&none &none &none 		&none 	   &none
+			&kp DE_COUML &kp DE_SECT &kp DE_DEG   &kp DE_DLLR  &kp DE_MY    	&none &none &none 		&none 	   &kp DE_BSLH
 												  &none		   &none        	&none &none 
 			>;
 		};
