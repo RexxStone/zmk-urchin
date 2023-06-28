@@ -139,9 +139,9 @@
 		symbols_2_layer {
 			label = "Sym.2";
 			bindings = <
-			&kp DE_CUUML &kp DE_ACU  &kp DE_CARET &kp DE_GRAVE &kp DE_TILDE		&none &none &kp DE_SQRD &kp DE_QBD &none
+			&kp DE_CUUML &kp DE_ACU  &kp DE_CARET &kp DE_GRAVE &kp DE_TILDE		&none &none &none		&none	   &none
 			&kp DE_CAUML &kp DE_AT   &kp DE_PRCNT &kp DE_EUR   &kp DE_PIPE		&none &none &none 		&none 	   &kp DE_CSZ
-			&kp DE_COUML &kp DE_SECT &kp DE_DEG   &kp DE_DLLR  &kp DE_MY    	&none &none &none 		&none 	   &kp DE_BSLH
+			&kp DE_COUML &kp DE_SECT &kp DE_DEG   &kp DE_DLLR  &kp DE_MY    	&none &none &kp DE_SQRD &kp DE_QBD &kp DE_BSLH
 												  &none		   &none        	&none &none 
 			>;
 		};
