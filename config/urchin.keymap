@@ -43,12 +43,13 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 		kp_sk: behaviour_kp_sk {
-			compatible = "zmk,behavior-hold-tap";
+			compatible = "zmk,behavior-hold-tap,behavior-sk-mod";
             label = "kp_sk";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <180>;
             bindings = <&kp>, <&sk>;
+			hold-while-undecided-linger;
 		};
     };
 	
