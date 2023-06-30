@@ -6,10 +6,13 @@ manifest:
       # bravekarma
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    # theol, additional sticky key functionality
+    - name: theol0403
+      url-base: https://github.com/theol0403
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: theol0403
+      revision: local
       import: app/west.yml
   self:
     path: config
