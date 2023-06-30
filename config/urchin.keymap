@@ -26,6 +26,20 @@
     ignore-modifiers;
 };
 
+// all sticky keys are sticky when tapped, but momentary when held. 
+// this allows for rolling layer keys, and accessing modifiers on base, while not getting in the way.
+// this behavior is especially useful for use with a mouse because sticky modifiers don't linger
+#define STICKY_TAP_MS 200
+
+// tap: sticky-mod | hold: mod
+#define SK(mod) &sk_mod mod mod
+ZMK_BEHAVIOR(sk_mod, hold_tap,
+    flavor = "balanced"; // balanced because we want to consider as tap when rolling
+    tapping-term-ms = <STICKY_TAP_MS>; 
+    bindings = <&kp>, <&sk>; 
+    hold-while-undecided-linger; // requires pr
+)
+
 / {
 	behaviors {
         apexcl: apos_excl {
@@ -118,7 +132,7 @@
 			label = "Mods";
 			bindings = <
 			&kp ESC          &kp C_PREV       &kp C_PP             &kp C_NEXT         &kp LC(DE_Y)	&kp PG_UP    &kp HOME &kp UP          &kp END   &kp CAPS
-			&kp_sk LALT LALT &kp_sk LGUI LGUI &kp_sk LSHIFT LSHIFT &kp_sk LCTRL LCTRL &kp DEL		&kp PG_DN    &kp LEFT &kp DOWN        &kp RIGHT &kp DEL
+			SK(LALT) 		 SK(LGUI) 		  SK(LGUI)			   SK(LCTRL)		  &kp DEL		&kp PG_DN    &kp LEFT &kp DOWN        &kp RIGHT &kp DEL
 			&kp LC(DE_Z)     &kp LC(X)        &kp LC(C)            &kp TAB            &kp LC(V)     &kp LC(BSPC) &kp BSPC &kp PAUSE_BREAK &kp PSCRN	&kp LC(DEL)
 											                       &trans 	          &none		    &kp ENTER    &mo FNC
 			>;
