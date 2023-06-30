@@ -49,6 +49,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <180>;
             bindings = <&kp>, <&sk>;
+			hold-while-undecided;
 			hold-while-undecided-linger;
 		};
     };
