@@ -26,13 +26,6 @@
     ignore-modifiers;
 };
 
-ZMK_BEHAVIOR(sk_lazy, sticky_key, // sticky-key with lazy behavior
-    bindings = <&kp>;
-    release-after-ms = <1000>;  // release after timeout
-    ignore-modifiers;
-	lazy;
-)
-
 / {
 	behaviors {
         apexcl: apos_excl {
@@ -49,6 +42,17 @@ ZMK_BEHAVIOR(sk_lazy, sticky_key, // sticky-key with lazy behavior
             bindings = <&kp DE_SLASH>, <&kp DE_QMARK>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+		// separate sticky behavior for lazy keys
+		sk_lazy: behavior_sk_lazy {
+			compatible = "zmk,behavior-sticky-key";
+			label = "sk_lazy";
+			#binding-cells = <1>;
+			bindings = <&kp>;
+    		release-after-ms = <1000>;
+    		ignore-modifiers;
+			lazy;
+		};
 
 		// for alt key
 		sk_nl: behaviour_sk_nolazy_hold {
