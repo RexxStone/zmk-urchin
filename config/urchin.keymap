@@ -26,6 +26,13 @@
     ignore-modifiers;
 };
 
+ZMK_BEHAVIOR(sk_lazy, sticky_key, // sticky-key with lazy behavior
+    bindings = <&kp>;
+    release-after-ms = <1000>;  // release after timeout
+    ignore-modifiers;
+	lazy;
+)
+
 / {
 	behaviors {
         apexcl: apos_excl {
@@ -42,15 +49,38 @@
             bindings = <&kp DE_SLASH>, <&kp DE_QMARK>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-		kp_sk: behaviour_kp_sk {
+
+		// for alt key
+		sk_nl: behaviour_sk_nolazy_hold {
 			compatible = "zmk,behavior-hold-tap";
-            label = "kp_sk";
+            label = "sk_nl";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <180>;
             bindings = <&kp>, <&sk>;
 			hold-while-undecided;
 			hold-while-undecided-linger;
+		};
+
+		// for shift + ctrl keys 
+		sk_lh: behaviour_sk_lazy_hold {
+			compatible = "zmk,behavior-hold-tap";
+            label = "sk_lh";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <180>;
+            bindings = <&kp>, <&sk_lazy>;
+			hold-while-undecided;
+		};
+
+		// for gui key
+		sk_nh: behaviour_sk_lazy_nohold {
+			compatible = "zmk,behavior-hold-tap";
+            label = "sk_nh";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <180>;
+            bindings = <&kp>, <&sk_lazy>;
 		};
     };
 	
@@ -120,7 +150,7 @@
 			label = "Mods";
 			bindings = <
 			&kp ESC          &kp C_PREV       &kp C_PP             &kp C_NEXT         &kp LC(DE_Y)	&kp PG_UP    &kp HOME &kp UP          &kp END   &kp CAPS
-			&kp_sk LALT LALT &kp_sk LGUI LGUI &kp_sk LSHIFT LSHIFT &kp_sk LCTRL LCTRL &kp DEL		&kp PG_DN    &kp LEFT &kp DOWN        &kp RIGHT &kp DEL
+			&sk_nl LALT LALT &sk_nh LGUI LGUI &sk_lh LSHIFT LSHIFT &sk_lh LCTRL LCTRL &kp DEL		&kp PG_DN    &kp LEFT &kp DOWN        &kp RIGHT &kp DEL
 			&kp LC(DE_Z)     &kp LC(X)        &kp LC(C)            &kp TAB            &kp LC(V)     &kp LC(BSPC) &kp BSPC &kp PAUSE_BREAK &kp PSCRN	&kp LC(DEL)
 											                       &trans 	          &none		    &kp ENTER    &mo FNC
 			>;
