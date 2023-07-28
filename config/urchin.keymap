@@ -46,7 +46,7 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-		mo_tog: behavior_mo_sl {
+		mo_sl: behavior_mo_sl {
             compatible = "zmk,behavior-hold-tap";
             label = "mo_sl";
             #binding-cells = <2>;
