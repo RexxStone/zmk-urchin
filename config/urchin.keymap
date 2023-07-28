@@ -16,9 +16,12 @@
     #define EXT 2
     #define FNC 3
     #define SYM2 4
-    #define GAME 5
-	#define GAME2 6
-	#define SETTINGS 7
+    #define OH1 5
+	#define OH2 6
+	#define OH3 7
+	#define SETTINGS 8
+	#define GAME 9
+	#define GAME2 10
 // -----------------
 
 &sk {
@@ -41,6 +44,15 @@
             #binding-cells = <0>;
             bindings = <&kp DE_SLASH>, <&kp DE_QMARK>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+		mo_tog: behavior_mo_sl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "mo_sl";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <180>;
+            bindings = <&mo>, <&sl>;
         };
 
 		// separate sticky behavior for lazy keys
@@ -131,10 +143,10 @@
 		default_layer {
 			label = "Base";
 			bindings = <
-			&kp Q &kp W &kp F &kp P   &kp B           &kp J     &kp L  &kp U     &kp Z   &apexcl
-			&kp A &kp R &kp S &kp T   &kp G           &kp M     &kp N  &kp E     &kp I   &kp O
-			&kp Y &kp X &kp C &kp D   &kp V           &kp K     &kp H  &kp COMMA &kp DOT &slaqm
-							  &mo EXT &kp LSHIFT      &kp SPACE &mo SYM
+			&kp Q &kp W &kp F &kp P			 &kp B				&kp J     &kp L  &kp U     &kp Z   &apexcl
+			&kp A &kp R &kp S &kp T   		 &kp G				&kp M     &kp N  &kp E     &kp I   &kp O
+			&kp Y &kp X &kp C &kp D   		 &kp V				&kp K     &kp H  &kp COMMA &kp DOT &slaqm
+							  &mo_sl EXT OH1 &mt LSHIFT SPACE	&kp SPACE &mo SYM
 			>;
 		};
 
@@ -182,7 +194,47 @@
 			>;
 		};
 
-        // Used for Gaming.
+        // Used for one handed typing
+		one_handed_1_layer {
+				label = "OH.1";
+				bindings = <
+				&apexcl &kp Z	&kp U	  &kp L	  &kp J		&none &none &none &none &none
+				&kp O	&kp I	&kp E	  &kp N   &kp M		&none &none &none &none &none
+				&slaqm  &kp DOT &kp COMMA &kp H	  &kp K		&none &none &none &none &none
+										  &sl OH2 &kp BSPC	&none &none 
+				>;
+		};
+		one_handed_2_layer {
+				label = "OH.2";
+				bindings = <
+				&kp DE_DQT &kp N7 &kp N8 &kp N9  &kp DE_AMPS	&none &none &none &none &none
+				&kp N0	   &kp N4 &kp N5 &kp N6  &kp DE_UNDER	&none &none &none &none &none
+				&kp DE_SZ  &kp N1 &kp N2 &kp N3  &kp DE_HASH	&none &none &none &none &none
+								  		 &sl OH3 &kp ENTER		&none &none 
+				>;
+		};
+		one_handed_3_layer {
+				label = "OH.3";
+				bindings = <
+				&kp DE_UUML &kp DE_LT 	&kp DE_EQUAL &kp DE_GT 	 &kp DE_PLUS		&none &none &none &none &none
+				&kp DE_AUML &kp DE_LBRC &kp DE_LBKT  &kp DE_LPAR &kp DE_MINUS		&none &none &none &none &none
+				&kp DE_OUML &kp DE_RBRC	&kp DE_RBKT  &kp DE_RPAR &kp DE_ASTRK 		&none &none &none &none &none
+								  					 &none 		 &caps_word			&none &none 
+				>;
+		};
+
+        // Used to change the keyboard's settings.
+		settings_layer {
+				label = "Sett.";
+				bindings = <
+				&bootloader &none &none &bt BT_CLR &bt BT_SEL 0		&bt BT_SEL 3 &none &unstick &none &bootloader 
+				&none 		&none &none &none      &bt BT_SEL 1		&bt BT_SEL 4 &none &none 	&none &none
+				&none 		&none &none &none      &bt BT_SEL 2		&bt BT_SEL 5 &none &none 	&none &none
+										&none 	   &none			&none 		 &none 
+				>;
+		};
+
+		// Used for Gaming.
 		gaming_layer {
 			label = "Gaming";
 			bindings = <
@@ -201,17 +253,6 @@
 			&kp LALT  &kp N7 &kp N8 &kp N9 &kp B	&kp N &kp M &kp COMMA &kp DOT &kp DE_MINUS
 							  		&trans &none	&none &none 
 			>;
-		};
-
-        // Used to change the keyboard's settings.
-		settings_layer {
-				label = "Sett.";
-				bindings = <
-				&bootloader &none &none &bt BT_CLR &bt BT_SEL 0		&bt BT_SEL 3 &none &unstick &none &bootloader 
-				&none 		&none &none &none      &bt BT_SEL 1		&bt BT_SEL 4 &none &none 	&none &none
-				&none 		&none &none &none      &bt BT_SEL 2		&bt BT_SEL 5 &none &none 	&none &none
-										&none 	   &none			&none 		 &none 
-				>;
 		};
 	};
 };
