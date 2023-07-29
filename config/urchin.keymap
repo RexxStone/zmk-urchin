@@ -28,6 +28,9 @@
     // don't release mods on other mods presses
     ignore-modifiers;
 };
+&sl {
+    release-after-ms = <1000>;
+};
 
 / {
 	behaviors {
@@ -46,13 +49,22 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-		mo_sl: behavior_mo_sl {
+		kp_sl: behavior_kp_sl {
             compatible = "zmk,behavior-hold-tap";
-            label = "mo_sl";
+            label = "kp_sl";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <180>;
-            bindings = <&mo>, <&sl>;
+            bindings = <&kp>, <&sl>;
+        };
+
+		mo_kp: behavior_mo_kp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "mo_kp";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <180>;
+            bindings = <&mo>, <&kp>;
         };
 
 		// separate sticky behavior for lazy keys
@@ -143,10 +155,10 @@
 		default_layer {
 			label = "Base";
 			bindings = <
-			&kp Q &kp W &kp F &kp P			 &kp B				&kp J     &kp L  &kp U     &kp Z   &apexcl
-			&kp A &kp R &kp S &kp T   		 &kp G				&kp M     &kp N  &kp E     &kp I   &kp O
-			&kp Y &kp X &kp C &kp D   		 &kp V				&kp K     &kp H  &kp COMMA &kp DOT &slaqm
-							  &mo_sl EXT OH1 &mt LSHIFT SPACE	&kp SPACE &mo SYM
+			&kp Q &kp W &kp F &kp P			   &kp B				&kp J     &kp L  &kp U     &kp Z   &apexcl
+			&kp A &kp R &kp S &kp T   		   &kp G				&kp M     &kp N  &kp E     &kp I   &kp O
+			&kp Y &kp X &kp C &kp D   		   &kp V				&kp K     &kp H  &kp COMMA &kp DOT &slaqm
+							  &mo_kp EXT SPACE &kp_sl LSHIFT MO1	&kp SPACE &mo SYM
 			>;
 		};
 
@@ -168,7 +180,7 @@
 			&kp ESC          &kp C_PREV       &kp C_PP             &kp C_NEXT         &kp LC(DE_Y)	&kp PG_UP    &kp HOME &kp UP          &kp END   &kp CAPS
 			&sk_nl LALT LALT &sk_nh LGUI LGUI &sk_lh LSHIFT LSHIFT &sk_lh LCTRL LCTRL &kp DEL		&kp PG_DN    &kp LEFT &kp DOWN        &kp RIGHT &kp DEL
 			&kp LC(DE_Z)     &kp LC(X)        &kp LC(C)            &kp TAB            &kp LC(V)     &kp LC(BSPC) &kp BSPC &kp PAUSE_BREAK &kp PSCRN	&kp LC(DEL)
-											                       &trans 	          &none		    &kp ENTER    &mo FNC
+											                       &trans 	          &none		    &kp ENTER    &mo FNCq
 			>;
 		};
 
@@ -198,19 +210,19 @@
 		one_handed_1_layer {
 				label = "OH.1";
 				bindings = <
-				&apexcl &kp Z	&kp U	  &kp L	  &kp J		&none &none &none &none &none
-				&kp O	&kp I	&kp E	  &kp N   &kp M		&none &none &none &none &none
-				&slaqm  &kp DOT &kp COMMA &kp H	  &kp K		&none &none &none &none &none
-										  &sl OH2 &kp BSPC	&none &none 
+				&apexcl &kp Z	&kp U	  &kp L	   &kp J	&trans &trans &trans &trans &trans
+				&kp O	&kp I	&kp E	  &kp N    &kp M	&trans &trans &trans &trans &trans
+				&slaqm  &kp DOT &kp COMMA &kp H	   &kp K	&trans &trans &trans &trans &trans
+										  &kp BSPC &trans 	&trans &trans
 				>;
 		};
 		one_handed_2_layer {
 				label = "OH.2";
 				bindings = <
-				&kp DE_DQT &kp N7 &kp N8 &kp N9  &kp DE_AMPS	&none &none &none &none &none
-				&kp N0	   &kp N4 &kp N5 &kp N6  &kp DE_UNDER	&none &none &none &none &none
-				&kp DE_SZ  &kp N1 &kp N2 &kp N3  &kp DE_HASH	&none &none &none &none &none
-								  		 &sl OH3 &kp ENTER		&none &none 
+				&kp DE_DQT &kp N7 &kp N8 &kp N9    &kp DE_AMPS	&none &none &none &none &none
+				&kp N0	   &kp N4 &kp N5 &kp N6    &kp DE_UNDER	&none &none &none &none &none
+				&kp DE_SZ  &kp N1 &kp N2 &kp N3    &kp DE_HASH	&none &none &none &none &none
+								  		 &kp ENTER &sl OH3		&none &none
 				>;
 		};
 		one_handed_3_layer {
