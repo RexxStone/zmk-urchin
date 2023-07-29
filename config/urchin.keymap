@@ -158,7 +158,7 @@
 			&kp Q &kp W &kp F &kp P			   &kp B				&kp J     &kp L  &kp U     &kp Z   &apexcl
 			&kp A &kp R &kp S &kp T   		   &kp G				&kp M     &kp N  &kp E     &kp I   &kp O
 			&kp Y &kp X &kp C &kp D   		   &kp V				&kp K     &kp H  &kp COMMA &kp DOT &slaqm
-							  &mo_kp EXT SPACE &kp_sl LSHIFT MO1	&kp SPACE &mo SYM
+							  &mo EXT 		   &kp_sl LSHIFT MO1	&kp SPACE &mo SYM
 			>;
 		};
 
