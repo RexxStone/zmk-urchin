@@ -67,6 +67,16 @@
             bindings = <&mo>, <&kp>;
         };
 
+		ht: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP";
+            #binding-cells = <2>;
+            tapping_term_ms = <135>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        }; 
+
 		// separate sticky behavior for lazy keys
 		sk_lazy: behavior_sk_lazy {
 			compatible = "zmk,behavior-sticky-key";
@@ -155,10 +165,10 @@
 		default_layer {
 			label = "Base";
 			bindings = <
-			&kp Q &kp W &kp F &kp P			   &kp B				&kp J     &kp L  &kp U     &kp Z   &apexcl
-			&kp A &kp R &kp S &kp T   		   &kp G				&kp M     &kp N  &kp E     &kp I   &kp O
-			&kp Y &kp X &kp C &kp D   		   &kp V				&kp K     &kp H  &kp COMMA &kp DOT &slaqm
-							  &mo_kp EXT SPACE &kp_sl LSHIFT OH1	&kp SPACE &mo SYM
+			&kp Q &kp W &kp F &kp P	  &kp B				&kp J     &kp L  &kp U     &kp Z   &apexcl
+			&kp A &kp R &kp S &kp T	  &kp G				&kp M     &kp N  &kp E     &kp I   &kp O
+			&kp Y &kp X &kp C &kp D	  &kp V				&kp K     &kp H  &kp COMMA &kp DOT &slaqm
+							  &mo EXT &kp_sl LSHIFT OH1	&kp SPACE &mo SYM
 			>;
 		};
 
@@ -177,9 +187,9 @@
 		ext_layer {
 			label = "Mods";
 			bindings = <
-			&kp ESC          &kp C_PREV       &kp C_PP             &kp C_NEXT         &kp LC(DE_Y)	&kp PG_UP    &kp HOME &kp UP          &kp END   &kp CAPS
-			&sk_nl LALT LALT &sk_nh LGUI LGUI &sk_lh LSHIFT LSHIFT &sk_lh LCTRL LCTRL &kp DEL		&kp PG_DN    &kp LEFT &kp DOWN        &kp RIGHT &kp DEL
-			&kp LC(DE_Z)     &kp LC(X)        &kp LC(C)            &kp TAB            &kp LC(V)     &kp LC(BSPC) &kp BSPC &kp PAUSE_BREAK &kp PSCRN	&kp LC(DEL)
+			&kp ESC          &kp C_PREV       &kp C_PP             &kp C_NEXT         &kp DEL		&kp PG_UP    &kp HOME &kp UP          &kp END   &kp CAPS
+			&sk_nl LALT LALT &sk_nh LGUI LGUI &sk_lh LSHIFT LSHIFT &sk_lh LCTRL LCTRL &kp BSPC		&kp PG_DN    &kp LEFT &kp DOWN        &kp RIGHT &kp DEL
+			&kp LC(DE_Z)     &kp LC(DE_Y)     &kp LC(C)            &kp TAB            &kp LC(V)     &kp LC(BSPC) &kp BSPC &kp PAUSE_BREAK &kp PSCRN	&kp LC(DEL)
 											                       &trans 	          &none		    &kp ENTER    &mo FNC
 			>;
 		};
@@ -210,19 +220,19 @@
 		one_handed_1_layer {
 				label = "OH.1";
 				bindings = <
-				&apexcl &kp Z	&kp U	  &kp L	   &kp J	&trans &trans &trans &trans &trans
-				&kp O	&kp I	&kp E	  &kp N    &kp M	&trans &trans &trans &trans &trans
-				&slaqm  &kp DOT &kp COMMA &kp H	   &kp K	&trans &trans &trans &trans &trans
-										  &kp BSPC &trans 	&trans &trans
+				&ht DE_DQT DE_APOS &ht N7 Z	  &ht N8 U	   &ht N9 L	 &ht DE_AMPS J			&trans &trans &trans &trans &trans
+				&ht N0 O		   &ht N4 I	  &ht N5 E	   &ht N6 N	 &ht DE_UNDER M			&trans &trans &trans &trans &trans
+				&ht DE_SZ DE_SLASH &ht N1 DOT &ht N2 COMMA &ht N3 H	 &ht DE_HASH K			&trans &trans &trans &trans &trans
+														   &kp ENTER &mo_kp OH2 SPACE 		&trans &trans
 				>;
 		};
 		one_handed_2_layer {
 				label = "OH.2";
 				bindings = <
-				&kp DE_DQT &kp N7 &kp N8 &kp N9    &kp DE_AMPS	&none &none &none &none &none
-				&kp N0	   &kp N4 &kp N5 &kp N6    &kp DE_UNDER	&none &none &none &none &none
-				&kp DE_SZ  &kp N1 &kp N2 &kp N3    &kp DE_HASH	&none &none &none &none &none
-								  		 &kp ENTER &sl OH3		&none &none
+				&ht DE_UUML DE_EXCL  &ht DE_LT LS(Z)	 &ht DE_EQUAL LS(U)	   &ht DE_GT LS(L) 	 &ht DE_PLUS LS(J)		&trans &trans &trans &trans &trans
+				&ht DE_AUML LS(O)	 &ht DE_LBRC LS(I)	 &ht DE_LBKT LS(E)	   &ht DE_LPAR LS(N) &ht DE_MINUS LS(M)		&trans &trans &trans &trans &trans
+				&ht DE_OUML DE_QMARK &ht DE_RBRC LS(DOT) &ht DE_RBKT LS(COMMA) &ht DE_RPAR LS(H) &ht DE_ASTRK LS(K)		&trans &trans &trans &trans &trans
+								  		 									   &trans			 &trans					&trans &trans
 				>;
 		};
 		one_handed_3_layer {
