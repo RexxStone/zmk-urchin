@@ -180,7 +180,7 @@
 			&kp ESC          &kp C_PREV       &kp C_PP             &kp C_NEXT         &kp LC(DE_Y)	&kp PG_UP    &kp HOME &kp UP          &kp END   &kp CAPS
 			&sk_nl LALT LALT &sk_nh LGUI LGUI &sk_lh LSHIFT LSHIFT &sk_lh LCTRL LCTRL &kp DEL		&kp PG_DN    &kp LEFT &kp DOWN        &kp RIGHT &kp DEL
 			&kp LC(DE_Z)     &kp LC(X)        &kp LC(C)            &kp TAB            &kp LC(V)     &kp LC(BSPC) &kp BSPC &kp PAUSE_BREAK &kp PSCRN	&kp LC(DEL)
-											                       &trans 	          &none		    &kp ENTER    &mo FNCq
+											                       &trans 	          &none		    &kp ENTER    &mo FNC
 			>;
 		};
 
