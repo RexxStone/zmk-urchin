@@ -18,10 +18,9 @@
     #define SYM2 4
     #define OH1 5
 	#define OH2 6
-	#define OH3 7
-	#define SETTINGS 8
-	#define GAME 9
-	#define GAME2 10
+	#define SETTINGS 7
+	#define GAME 8
+	#define GAME2 9
 // -----------------
 
 &sk {
@@ -220,10 +219,10 @@
 		one_handed_1_layer {
 				label = "OH.1";
 				bindings = <
-				&ht DE_DQT DE_APOS &ht N7 Z	  &ht N8 U	   &ht N9 L	 &ht DE_AMPS J			&trans &trans &trans &trans &trans
-				&ht N0 O		   &ht N4 I	  &ht N5 E	   &ht N6 N	 &ht DE_UNDER M			&trans &trans &trans &trans &trans
-				&ht DE_SZ DE_SLASH &ht N1 DOT &ht N2 COMMA &ht N3 H	 &ht DE_HASH K			&trans &trans &trans &trans &trans
-														   &kp ENTER &mo_kp OH2 SPACE 		&trans &trans
+				&ht DE_DQT DE_APOS &ht N7 Z	  &ht N8 U	   &ht N9 L			&ht DE_AMPS J			&trans &trans &trans &trans &trans
+				&ht N0 O		   &ht N4 I	  &ht N5 E	   &ht N6 N			&ht DE_UNDER M			&trans &trans &trans &trans &trans
+				&ht DE_SZ DE_SLASH &ht N1 DOT &ht N2 COMMA &ht N3 H			&ht DE_HASH K			&trans &trans &trans &trans &trans
+														   &mo_kp EXT ENTER &mo_kp OH2 SPACE 		&trans &trans
 				>;
 		};
 		one_handed_2_layer {
@@ -233,15 +232,6 @@
 				&ht DE_AUML LS(O)	 &ht DE_LBRC LS(I)	 &ht DE_LBKT LS(E)	   &ht DE_LPAR LS(N) &ht DE_MINUS LS(M)		&trans &trans &trans &trans &trans
 				&ht DE_OUML DE_QMARK &ht DE_RBRC LS(DOT) &ht DE_RBKT LS(COMMA) &ht DE_RPAR LS(H) &ht DE_ASTRK LS(K)		&trans &trans &trans &trans &trans
 								  		 									   &trans			 &trans					&trans &trans
-				>;
-		};
-		one_handed_3_layer {
-				label = "OH.3";
-				bindings = <
-				&kp DE_UUML &kp DE_LT 	&kp DE_EQUAL &kp DE_GT 	 &kp DE_PLUS		&none &none &none &none &none
-				&kp DE_AUML &kp DE_LBRC &kp DE_LBKT  &kp DE_LPAR &kp DE_MINUS		&none &none &none &none &none
-				&kp DE_OUML &kp DE_RBRC	&kp DE_RBKT  &kp DE_RPAR &kp DE_ASTRK 		&none &none &none &none &none
-								  					 &none 		 &caps_word			&none &none 
 				>;
 		};
 
