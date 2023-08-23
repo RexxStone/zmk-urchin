@@ -14,13 +14,15 @@
     #define BASE 0
 	#define OH1 1
 	#define OH2 2
-    #define SYM 3
-    #define EXT 4
-    #define FNC 5
-    #define SYM2 6
-	#define GAME 7
-	#define GAME2 8
-	#define SETTINGS 9
+	#define OHX1 3
+	#define OHX2 4
+    #define SYM 5
+    #define EXT 6
+    #define FNC 7
+    #define SYM2 8
+	#define GAME 9
+	#define GAME2 10
+	#define SETTINGS 11
 // -----------------
 
 &sk {
@@ -55,6 +57,15 @@
             flavor = "hold-preferred";
             tapping-term-ms = <180>;
             bindings = <&kp>, <&sl>;
+        };
+
+		mo_sl: behavior_mo_sl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "mo_sl";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <180>;
+            bindings = <&mo>, <&sl>;
         };
 
 		mo_kp: behavior_mo_kp {
@@ -164,10 +175,10 @@
 		default_layer {
 			label = "Base";
 			bindings = <
-			&kp Q &kp W &kp F &kp P	  &kp B				&kp J     &kp L  &kp U     &kp Z   &apexcl
-			&kp A &kp R &kp S &kp T	  &kp G				&kp M     &kp N  &kp E     &kp I   &kp O
-			&kp Y &kp X &kp C &kp D	  &kp V				&kp K     &kp H  &kp COMMA &kp DOT &slaqm
-							  &mo EXT &kp_sl LSHIFT OH1	&kp SPACE &mo SYM
+			&kp Q &kp W &kp F &kp P			  &kp B					&kp J     &kp L  &kp U     &kp Z   &apexcl
+			&kp A &kp R &kp S &kp T			  &kp G					&kp M     &kp N  &kp E     &kp I   &kp O
+			&kp Y &kp X &kp C &kp D			  &kp V					&kp K     &kp H  &kp COMMA &kp DOT &slaqm
+							  &mo_sl EXT OHX1 &kp_sl LSHIFT OH1		&kp SPACE &mo SYM
 			>;
 		};
 
@@ -175,10 +186,10 @@
 		one_handed_1_layer {
 			label = "OH.1";
 			bindings = <
-			&ht DE_DQT DE_APOS &ht N7 Z	  &ht N8 U	   &ht N9 L			&ht DE_AMPS J			&trans &trans &trans &trans &trans
-			&ht N0 O		   &ht N4 I	  &ht N5 E	   &ht N6 N			&ht DE_UNDER M			&trans &trans &trans &trans &trans
-			&ht DE_SZ DE_SLASH &ht N1 DOT &ht N2 COMMA &ht N3 H			&ht DE_HASH K			&trans &trans &trans &trans &trans
-													   &mo_kp EXT ENTER &mo_kp OH2 SPACE 		&trans &trans
+			&ht DE_DQT DE_APOS &ht N7 Z	  &ht N8 U	   &ht N9 L &ht DE_AMPS J			&trans &trans &trans &trans &trans
+			&ht N0 O		   &ht N4 I	  &ht N5 E	   &ht N6 N &ht DE_UNDER M			&trans &trans &trans &trans &trans
+			&ht DE_SZ DE_SLASH &ht N1 DOT &ht N2 COMMA &ht N3 H &ht DE_HASH K			&trans &trans &trans &trans &trans
+													   &trans	&mo_kp OH2 SPACE 		&trans &trans
 			>;
 		};
 		one_handed_2_layer {
@@ -188,6 +199,26 @@
 			&ht DE_AUML LS(O)	 &ht DE_LBRC LS(I)	 &ht DE_LBKT LS(E)	   &ht DE_LPAR LS(N) &ht DE_MINUS LS(M)		&trans &trans &trans &trans &trans
 			&ht DE_OUML DE_QMARK &ht DE_RBRC LS(DOT) &ht DE_RBKT LS(COMMA) &ht DE_RPAR LS(H) &ht DE_ASTRK LS(K)		&trans &trans &trans &trans &trans
 							  		 									   &trans			 &trans					&trans &trans
+			>;
+		};
+
+		// Additional one handed extended layers
+		one_handed_ext_1_layer {
+			label = "OHX.1";
+			bindings = <
+			&ht F12 Q &ht F7 W &ht F8 F &ht F9 P 		  &ht C_VOL_UP B		&trans &trans &trans &trans &trans
+			&ht F11 A &ht F4 R &ht F5 S &ht F6 T 		  &ht C_MUTE G			&trans &trans &trans &trans &trans
+			&ht F10 Y &ht F1 X &ht F2 C &ht F3 D 		  &ht C_VOL_DN V		&trans &trans &trans &trans &trans
+										&mo_kp OHX2 ENTER &trans			 	&trans &trans
+			>;
+		};
+		one_handed_ext_2_layer {
+			label = "OHX.2";
+			bindings = <
+			&kp ESC          &kp HOME  &kp UP          &kp END    &kp PG_UP			&kp PG_UP    &kp HOME &kp UP          &kp END   &kp CAPS
+			&sk_nl LALT LALT &kp LEFT  &kp DOWN        &kp RIGHT  &kp PG_DN			&kp PG_DN    &kp LEFT &kp DOWN        &kp RIGHT &kp DEL
+			&kp LC(DE_Y)     &kp PSCRN &kp PAUSE_BREAK &kp TAB	  &kp LC(BSPC)		&kp LC(BSPC) &kp BSPC &kp PAUSE_BREAK &kp PSCRN	&kp LC(DEL)
+											           &trans 	  &trans		    &kp ENTER    &mo FNC
 			>;
 		};
 
@@ -208,7 +239,7 @@
 			bindings = <
 			&kp ESC          &kp C_PREV       &kp C_PP             &kp C_NEXT         &kp DEL		&kp PG_UP    &kp HOME &kp UP          &kp END   &kp CAPS
 			&sk_nl LALT LALT &sk_nh LGUI LGUI &sk_lh LSHIFT LSHIFT &sk_lh LCTRL LCTRL &kp BSPC		&kp PG_DN    &kp LEFT &kp DOWN        &kp RIGHT &kp DEL
-			&kp LC(DE_Z)     &kp LC(DE_Y)     &kp LC(C)            &kp TAB            &kp LC(V)     &kp LC(BSPC) &kp BSPC &kp PAUSE_BREAK &kp PSCRN	&kp LC(DEL)
+			&kp LC(DE_Z)     &kp LC(X)     &kp LC(C)            &kp TAB            &kp LC(V)     &kp LC(BSPC) &kp BSPC &kp PAUSE_BREAK &kp PSCRN	&kp LC(DEL)
 											                       &trans 	          &none		    &kp ENTER    &mo FNC
 			>;
 		};
