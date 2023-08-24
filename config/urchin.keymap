@@ -25,6 +25,15 @@
 	#define SETTINGS 11
 // -----------------
 
+// combo macro definition
+#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
+  	combo_##NAME { \
+    	timeout-ms = <50>; \
+    	bindings = <BINDINGS>; \
+    	key-positions = <KEYPOS>; \
+    	layers = <LAYERS>; \
+	};
+
 &sk {
     // don't release mods on other mods presses
     ignore-modifiers;
@@ -145,27 +154,31 @@
 
     combos {
 		compatible = "zmk,combos";
-		// both right thumb keys
-        combo_accent {
-			timeout-ms = <50>;
-			key-positions = <32 33>;
-			layers = <BASE>;
-			bindings = <&to GAME>;
-        };
-		// internal-left & external-right thumb keys
-		combo_sym2 {
-			timeout-ms = <50>;
-			key-positions = <31 33>;
-			layers = <BASE SYM EXT FNC SYM2 SETTINGS>;
-			bindings = <&mo SYM2>;
-		};
-		// both left thumb keys
-		combo_settings {
-			timeout-ms = <50>;
-			key-positions = <30 31>;
-			layers = <BASE SYM EXT FNC SYM2 SETTINGS>;
-			bindings = <&mo SETTINGS>;
-		};
+
+		COMBO(game, &to GAME, 32 33, BASE)
+		COMBO(sym2, &mo SYM2, 31 33, BASE SYM EXT FNC SYM2)
+		COMBO(settings, &mo SETTINGS, 30 31, BASE SYM EXT FNC SYM2 SETTINGS)
+
+		COMBO(acu, &kp DE_ACU, 0 1, OH1)
+		COMBO(caret, &kp DE_CARET, 1 2, OH1)
+		COMBO(grave, &kp DE_GRAVE, 2 3, OH1)
+		COMBO(tilde, &kp DE_TILDE, 3 4, OH1)
+		COMBO(at, &kp DE_AT, 10 11, OH1)
+		COMBO(prcnt, &kp DE_PRCNT, 11 12, OH1)
+		COMBO(eur, &kp DE_EUR, 12 13, OH1)
+		COMBO(pipe, &kp DE_PIPE, 13 14, OH1)
+		COMBO(sect, &kp DE_SECT, 20 21, OH1)
+		COMBO(deg, &kp DE_DEG, 21 22, OH1)
+		COMBO(dllr, &kp DE_DLLR, 22 23, OH1)
+		COMBO(my, &kp DE_MY, 23 24, OH1)
+		COMBO(csz, &kp DE_CSZ, 0 10, OH1)
+		COMBO(bslh, &kp DE_BSLH, 10 20, OH1)
+		COMBO(sqrd, &kp DE_SQRD, 12 22, OH1)
+		COMBO(qbd, &kp DE_QBD, 13 23, OH1)
+
+		COMBO(cuuml, &kp DE_CUUML, 0 1, OH2)
+		COMBO(cauml, &kp DE_CAUML, 10 11, OH2)
+		COMBO(couml, &kp DE_COUML, 20 21, OH2)
     };
 
     keymap {
