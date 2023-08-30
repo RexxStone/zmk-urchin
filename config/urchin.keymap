@@ -179,6 +179,11 @@
 		COMBO(cuuml, &kp DE_CUUML, 0 1, OH2)
 		COMBO(cauml, &kp DE_CAUML, 10 11, OH2)
 		COMBO(couml, &kp DE_COUML, 20 21, OH2)
+
+		COMBO(up, &kp UP, 2 3, OH2)
+		COMBO(left, &kp LEFT, 11 12, OH2)
+		COMBO(right, &kp RIGHT, 12 13, OH2)
+		COMBO(down, &kp DOWN, 22 23, OH2)
     };
 
     keymap {
@@ -225,13 +230,14 @@
 										&mo OHX2 &trans			 	&trans &trans
 			>;
 		};
+		// tried putting arrow keys here, but didn't work consistently. Reverting this to be the same as EXT for now
 		one_handed_ext_2_layer {
 			label = "OHX.2";
 			bindings = <
-			&kp ESC		 &kp HOME	  &kp UP		  &kp END	&kp DEL			&kp PG_UP    &kp HOME &kp UP          &kp END   &kp CAPS
-			&kp PSCRN	 &kp LEFT	  &kp DOWN		  &kp RIGHT	&kp BSPC		&kp PG_DN    &kp LEFT &kp DOWN        &kp RIGHT &kp DEL
-			&kp LC(DE_Z) &kp LC(DE_Y) &ht LC(X) LC(C) &kp TAB	&kp LC(V)		&kp LC(BSPC) &kp BSPC &kp PAUSE_BREAK &kp PSCRN	&kp LC(DEL)
-													  &trans	&trans		    &kp ENTER    &mo FNC
+			&kp ESC          &kp C_PREV       &kp C_PP             &kp C_NEXT         &kp DEL		&kp PG_UP    &kp HOME &kp UP          &kp END   &kp CAPS
+			&sk_nl LALT LALT &sk_nh LGUI LGUI &sk_lh LSHIFT LSHIFT &sk_lh LCTRL LCTRL &kp BSPC		&kp PG_DN    &kp LEFT &kp DOWN        &kp RIGHT &kp DEL
+			&kp LC(DE_Z)     &kp LC(DE_Y)	  &ht LC(X) LC(C)      &kp TAB            &kp LC(V)     &kp LC(BSPC) &kp BSPC &kp PAUSE_BREAK &kp PSCRN	&kp LC(DEL)
+											                       &trans 	          &none		    &kp ENTER    &mo FNC
 			>;
 		};
 
